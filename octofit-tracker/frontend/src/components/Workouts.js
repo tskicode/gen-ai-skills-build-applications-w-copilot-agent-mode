@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { API_BASE } from '../index';
 
 export default function Workouts() {
   const [workouts, setWorkouts] = useState([]);
@@ -9,7 +8,7 @@ export default function Workouts() {
 
   const fetchData = () => {
     setLoading(true);
-    const endpoint = `${API_BASE}/workouts/`;
+    const endpoint = `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/workouts/`;
     console.log('Fetching Workouts from', endpoint);
 
     fetch(endpoint)
@@ -53,7 +52,7 @@ export default function Workouts() {
                   <td>{w.duration || w.time || '-'}</td>
                   <td>
                     <button className="btn btn-sm btn-primary me-2" onClick={() => { setSelected(w); setModalOpen(true); }}>Details</button>
-                    <a className="btn btn-sm btn-link" href={`${API_BASE}/workouts/${w.id || ''}`} target="_blank" rel="noreferrer">API</a>
+                    <a className="btn btn-sm btn-link" href={`https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/workouts/${w.id || ''}`} target="_blank" rel="noreferrer">API</a>
                   </td>
                 </tr>
               ))}

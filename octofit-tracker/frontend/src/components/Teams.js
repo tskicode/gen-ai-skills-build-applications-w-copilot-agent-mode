@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { API_BASE } from '../index';
 
 export default function Teams() {
   const [teams, setTeams] = useState([]);
@@ -9,7 +8,7 @@ export default function Teams() {
 
   const fetchData = () => {
     setLoading(true);
-    const endpoint = `${API_BASE}/teams/`;
+    const endpoint = `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/teams/`;
     console.log('Fetching Teams from', endpoint);
 
     fetch(endpoint)
@@ -53,7 +52,7 @@ export default function Teams() {
                   <td>{(t.members && t.members.length) ?? t.member_count ?? '-'}</td>
                   <td>
                     <button className="btn btn-sm btn-primary me-2" onClick={() => { setSelected(t); setModalOpen(true); }}>Details</button>
-                    <a className="btn btn-sm btn-link" href={`${API_BASE}/teams/${t.id || ''}`} target="_blank" rel="noreferrer">API</a>
+                    <a className="btn btn-sm btn-link" href={`https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/teams/${t.id || ''}`} target="_blank" rel="noreferrer">API</a>
                   </td>
                 </tr>
               ))}

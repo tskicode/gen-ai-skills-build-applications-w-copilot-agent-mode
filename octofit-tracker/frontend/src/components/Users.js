@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { API_BASE } from '../index';
 
 export default function Users() {
   const [users, setUsers] = useState([]);
@@ -9,7 +8,7 @@ export default function Users() {
 
   const fetchData = () => {
     setLoading(true);
-    const endpoint = `${API_BASE}/users/`;
+    const endpoint = `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/users/`;
     console.log('Fetching Users from', endpoint);
 
     fetch(endpoint)
@@ -53,7 +52,7 @@ export default function Users() {
                   <td>{u.email || '-'}</td>
                   <td>
                     <button className="btn btn-sm btn-primary me-2" onClick={() => { setSelected(u); setModalOpen(true); }}>Details</button>
-                    <a className="btn btn-sm btn-link" href={`${API_BASE}/users/${u.id || ''}`} target="_blank" rel="noreferrer">API</a>
+                    <a className="btn btn-sm btn-link" href={`https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/users/${u.id || ''}`} target="_blank" rel="noreferrer">API</a>
                   </td>
                 </tr>
               ))}

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { API_BASE } from '../index';
 
 export default function Leaderboard() {
   const [rows, setRows] = useState([]);
@@ -9,7 +8,7 @@ export default function Leaderboard() {
 
   const fetchData = () => {
     setLoading(true);
-    const endpoint = `${API_BASE}/leaderboard/`;
+    const endpoint = `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/leaderboard/`;
     console.log('Fetching Leaderboard from', endpoint);
 
     fetch(endpoint)
@@ -55,7 +54,7 @@ export default function Leaderboard() {
                   <td>{r.score ?? r.points ?? '-'}</td>
                   <td>
                     <button className="btn btn-sm btn-primary me-2" onClick={() => { setSelected(r); setModalOpen(true); }}>Details</button>
-                    <a className="btn btn-sm btn-link" href={`${API_BASE}/leaderboard/${r.id || ''}`} target="_blank" rel="noreferrer">API</a>
+                    <a className="btn btn-sm btn-link" href={`https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/leaderboard/${r.id || ''}`} target="_blank" rel="noreferrer">API</a>
                   </td>
                 </tr>
               ))}

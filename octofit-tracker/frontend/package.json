@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "REACT_APP_CODESPACE_NAME=$CODESPACE_NAME react-scripts start",
+    "build": "REACT_APP_CODESPACE_NAME=$CODESPACE_NAME react-scripts build",
+    "test": "REACT_APP_CODESPACE_NAME=$CODESPACE_NAME react-scripts test",
     "eject": "react-scripts eject"
   },
   "dependencies": {

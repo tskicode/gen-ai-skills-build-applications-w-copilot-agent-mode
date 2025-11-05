@@ -9,8 +9,8 @@ export default function Activities() {
 
   const fetchData = () => {
     setLoading(true);
-    const endpoint = `${API_BASE}/activities/`;
-    console.log('Fetching Activities from', endpoint);
+  const endpoint = `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/activities/`;
+  console.log('Fetching Activities from', endpoint);
 
     fetch(endpoint)
       .then(res => res.json())
