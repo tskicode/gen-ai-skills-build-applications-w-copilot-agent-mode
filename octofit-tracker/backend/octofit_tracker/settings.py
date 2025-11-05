@@ -26,8 +26,21 @@ SECRET_KEY = 'django-insecure-ny2kpha(9c^q4w4fte5^8@2qtx28z$&#q1*%!b&#s4mj+=vco2
 DEBUG = True
 
 
-# Allow all hosts for development
-ALLOWED_HOSTS = ['*']
+# Allow codespace URL and localhost
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '0.0.0.0',
+    '.app.github.dev'  # Allows all subdomains of app.github.dev
+]
+
+# CORS settings
+CORS_ALLOW_ALL_ORIGINS = True  # Only for development
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.app.github.dev',
+    'http://localhost:8000',
+    'http://127.0.0.1:8000'
+]
 
 
 # Application definition
