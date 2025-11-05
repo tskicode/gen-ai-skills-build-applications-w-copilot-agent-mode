@@ -34,6 +34,10 @@ ALLOWED_HOSTS = [
     '.app.github.dev'  # Allows all subdomains of app.github.dev
 ]
 
+# Proxy and forwarded headers settings
+USE_X_FORWARDED_HOST = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 # CORS settings
 CORS_ALLOW_ALL_ORIGINS = True  # Only for development
 CSRF_TRUSTED_ORIGINS = [
