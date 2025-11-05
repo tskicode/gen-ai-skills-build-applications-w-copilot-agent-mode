@@ -27,11 +27,13 @@ DEBUG = True
 
 
 # Allow codespace URL and localhost
+import os
+CODESPACE_NAME = os.getenv('CODESPACE_NAME', 'localhost')
 ALLOWED_HOSTS = [
-    '.app.github.dev',  # Allows all subdomains of app.github.dev
     'localhost',
     '127.0.0.1',
-    '0.0.0.0'
+    f'{CODESPACE_NAME}-8000.app.github.dev',
+    '.app.github.dev'
 ]
 
 # Proxy and forwarded headers settings
@@ -41,6 +43,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # CORS settings
 CORS_ALLOW_ALL_ORIGINS = True  # Only for development
 CSRF_TRUSTED_ORIGINS = [
+    f'https://{CODESPACE_NAME}-8000.app.github.dev',
     'https://*.app.github.dev',
     'http://localhost:8000',
     'http://127.0.0.1:8000'
