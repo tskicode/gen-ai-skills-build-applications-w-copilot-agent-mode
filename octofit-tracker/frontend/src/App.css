@@ -1,0 +1,89 @@
+:root{
+  --bg-color: #0f1724; /* dark navy */
+  --card-bg: #0b1220;
+  --muted: #9aa4b2;
+  --accent: #38bdf8; /* sky-400 */
+  --accent-2: #7c3aed; /* purple */
+  --table-head: rgba(255,255,255,0.06);
+  --btn-bg: #2563eb;
+  --btn-bg-2: #06b6d4;
+}
+
+body{
+  background: linear-gradient(180deg,var(--bg-color), #071025 80%);
+  color: #e6eef8;
+}
+
+.app-navbar{
+  box-shadow: 0 2px 8px rgba(2,6,23,0.6);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+.app-logo{
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: linear-gradient(135deg,var(--accent),var(--accent-2));
+  padding: 4px;
+}
+
+.app-title{
+  font-weight: 600;
+  color: #ffffff;
+}
+
+h1,h2,h3,h4{
+  color: #e6f2ff;
+}
+
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+.table thead th{
+  background: var(--table-head);
+  color: #cfe9ff;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > *{
+  background-color: rgba(255,255,255,0.01);
+}
+
+.btn-primary{
+  background: linear-gradient(90deg,var(--btn-bg), #1d4ed8);
+  border: none;
+}
+
+.btn-outline-secondary{
+  color: var(--accent);
+  border-color: rgba(255,255,255,0.06);
+}
+
+a, .nav-link{
+  color: var(--accent-2);
+}
+
+.nav-link:hover, a:hover{
+  color: var(--accent);
+}
+
+.modal-content{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  color: #eaf6ff;
+}
+
+pre{
+  background: rgba(0,0,0,0.25);
+  padding: 1rem;
+  border-radius: 6px;
+  color: #dbeafe;
+}
+
+/* small responsive tweaks */
+@media (max-width: 576px){
+  .app-logo{ width:28px; height:28px }
+  .app-title{ font-size: 0.95rem }
+}
