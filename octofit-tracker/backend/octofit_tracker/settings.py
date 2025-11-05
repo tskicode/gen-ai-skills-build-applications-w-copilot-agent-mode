@@ -28,10 +28,10 @@ DEBUG = True
 
 # Allow codespace URL and localhost
 ALLOWED_HOSTS = [
+    '.app.github.dev',  # Allows all subdomains of app.github.dev
     'localhost',
     '127.0.0.1',
-    '0.0.0.0',
-    '.app.github.dev'  # Allows all subdomains of app.github.dev
+    '0.0.0.0'
 ]
 
 # Proxy and forwarded headers settings
